@@ -27,6 +27,10 @@ static const char* fShaderColor = "shaders/shadercolor.frag";
 //shaders nuevos se crearían acá
 
 static const char* vShaderrojo = "shaders/shaderrojo.vert";
+static const char* vShadercafe = "shaders/shadercafe.vert";
+static const char* vShaderazul = "shaders/shaderazul.vert";
+static const char* vShaderverdeclaro = "shaders/shaderverdeclaro.vert";
+static const char* vShaderverdeoscuro = "shaders/shaderverdeoscuro.vert";
 
 float angulo = 0.0f;
 
@@ -35,22 +39,25 @@ float angulo = 0.0f;
 //Pirámide triangular regular
 void CreaPiramide()
 {
-	unsigned int indices[] = { 
-		0,1,2,
-		1,3,2,
-		3,0,2,
-		1,0,3
-		
-	};
-	GLfloat vertices[] = {
-		-0.5f, -0.5f,0.0f,	//0
-		0.5f,-0.5f,0.0f,	//1
-		0.0f,0.5f, -0.25f,	//2
-		0.0f,-0.5f,-0.5f,	//3
+	unsigned int indices[] = {
+		0, 1, 2,
+		0, 2, 3,
+		0, 1, 4,
+		1, 2, 4,
+		2, 3, 4,
+		3, 0, 4
 
 	};
-	Mesh *obj1 = new Mesh();
-	obj1->CreateMesh(vertices, indices, 12, 12);
+	GLfloat vertices[] = {
+		-0.5f, -0.5f,  0.5f,   // 0
+		 0.5f, -0.5f,  0.5f,   // 1
+		 0.5f, -0.5f, -0.5f,   // 2
+		-0.5f, -0.5f, -0.5f,   // 3
+		 0.0f,  0.5f,  0.0f    // 4
+
+	};
+	Mesh* obj1 = new Mesh();
+	obj1->CreateMesh(vertices, indices, 15, 18);
 	meshList.push_back(obj1);
 }
 
@@ -78,18 +85,18 @@ void CrearCubo()
 		6, 7, 3
 	};
 
-GLfloat cubo_vertices[] = {
-	// front
-	-0.5f, -0.5f,  0.5f,
-	0.5f, -0.5f,  0.5f,
-	0.5f,  0.5f,  0.5f,
-	-0.5f,  0.5f,  0.5f,
-	// back
-	-0.5f, -0.5f, -0.5f,
-	0.5f, -0.5f, -0.5f,
-	0.5f,  0.5f, -0.5f,
-	-0.5f,  0.5f, -0.5f
-};
+	GLfloat cubo_vertices[] = {
+		// front
+		-0.5f, -0.5f,  0.5f,
+		0.5f, -0.5f,  0.5f,
+		0.5f,  0.5f,  0.5f,
+		-0.5f,  0.5f,  0.5f,
+		// back
+		-0.5f, -0.5f, -0.5f,
+		0.5f, -0.5f, -0.5f,
+		0.5f,  0.5f, -0.5f,
+		-0.5f,  0.5f, -0.5f
+	};
 Mesh *cubo = new Mesh();
 cubo->CreateMesh(cubo_vertices, cubo_indices,24, 36);
 meshList.push_back(cubo);
@@ -370,6 +377,22 @@ void CreateShaders()
 	shader3->CreateFromFiles(vShaderrojo, fShader);
 	shaderList.push_back(*shader3);
 
+	Shader* shader4 = new Shader(); //shader para usar índices: objetos: cubo y  pirámide
+	shader4->CreateFromFiles(vShadercafe, fShader);
+	shaderList.push_back(*shader4);
+
+	Shader* shader5 = new Shader(); //shader para usar índices: objetos: cubo y  pirámide
+	shader5->CreateFromFiles(vShaderazul, fShader);
+	shaderList.push_back(*shader5);
+
+	Shader* shader6 = new Shader(); //shader para usar índices: objetos: cubo y  pirámide
+	shader6->CreateFromFiles(vShaderverdeclaro, fShader);
+	shaderList.push_back(*shader6);
+
+	Shader* shader7 = new Shader(); //shader para usar índices: objetos: cubo y  pirámide
+	shader7->CreateFromFiles(vShaderverdeoscuro, fShader);
+	shaderList.push_back(*shader7);
+
 }
 
 
@@ -384,8 +407,8 @@ int main()
 	GLuint uniformProjection = 0;
 	GLuint uniformModel = 0;
 	//Projection: Matriz de Dimensión 4x4 para indicar si vemos en 2D( orthogonal) o en 3D) perspectiva
-	glm::mat4 projection = glm::ortho(-1.0f, 1.0f, -1.0f, 1.0f, 0.1f, 100.0f);
-	//glm::mat4 projection = glm::perspective(glm::radians(60.0f)	,mainWindow.getBufferWidth() / mainWindow.getBufferHeight(), 0.1f, 100.0f);
+	//glm::mat4 projection = glm::ortho(-1.0f, 1.0f, -1.0f, 1.0f, 0.1f, 100.0f);
+	glm::mat4 projection = glm::perspective(glm::radians(60.0f)	,mainWindow.getBufferWidth() / mainWindow.getBufferHeight(), 0.1f, 100.0f);
 	
 	//Model: Matriz de Dimensión 4x4 en la cual se almacena la multiplicación de las transformaciones geométricas.
 	glm::mat4 model(1.0); //fuera del while se usa para inicializar la matriz con una identidad
@@ -400,17 +423,168 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //Se agrega limpiar el buffer de profundidad
 		
 													
-		//Para las letras hay que usar el segundo set de shaders con índice 1 en ShaderList 
-		shaderList[1].useShader();
-		uniformModel = shaderList[1].getModelLocation();
-		uniformProjection = shaderList[1].getProjectLocation();
+		////Para las letras hay que usar el segundo set de shaders con índice 1 en ShaderList 
+		//shaderList[1].useShader();
+		//uniformModel = shaderList[1].getModelLocation();
+		//uniformProjection = shaderList[1].getProjectLocation();
 
+		//model = glm::mat4(1.0);
+		//model = glm::translate(model, glm::vec3(0.0f, 0.0f, -0.4f));
+		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+		//glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envían al shader como variables de tipo uniform
+		//glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		//meshColorList[0]->RenderMeshColor();
+
+		//------------------------------------------------------------------------//
+		//------------------------------Prueba------------------------------------//
+
+		////Shader rojo para el cubo que representa las paredes de la casa
+		//shaderList[2].useShader();
+		//uniformModel = shaderList[0].getModelLocation();
+		//uniformProjection = shaderList[0].getProjectLocation();
+		//angulo += 0.01;
+		////Inicializar matriz de dimensión 4x4 que servirá como matriz de modelo para almacenar las transformaciones geométricas
+		//glm::mat4 modelCasa = glm::mat4(1.0f);
+		//modelCasa = glm::translate(modelCasa, glm::vec3(0.0f, 0.0f, -2.0f));
+		//modelCasa = glm::scale(modelCasa, glm::vec3(0.8f, 0.8f, 0.8f));
+		//modelCasa = glm::rotate(modelCasa, glm::radians(angulo), glm::vec3(0.0f, 1.0f, 0.0f));
+		//glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(modelCasa));//FALSE ES PARA QUE NO SEA TRANSPUESTA
+		//glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		//meshList[1]->RenderMesh();
+
+		////Shader verde claro para las ventanas y puertas
+		//shaderList[5].useShader();
+		//uniformModel = shaderList[0].getModelLocation();
+		//uniformProjection = shaderList[0].getProjectLocation();
+		//angulo += 0.01;
+		////Inicializar matriz de dimensión 4x4 que servirá como matriz de modelo para almacenar las transformaciones geométricas
+		//glm::mat4 modelVentana = modelCasa;
+		//modelVentana = glm::translate(modelVentana, glm::vec3(-0.2f, 0.2f, 0.4f));
+		//modelVentana = glm::scale(modelVentana, glm::vec3(0.25f, 0.25f, 0.25f));
+		//glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(modelVentana));//FALSE ES PARA QUE NO SEA TRANSPUESTA
+		//glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		//meshList[1]->RenderMesh();
+		
+		//------------------------------------------------------------------------//
+
+		//Shader rojo para el cubo que representa las paredes de la casa
+		shaderList[2].useShader();
+		uniformModel = shaderList[0].getModelLocation();
+		uniformProjection = shaderList[0].getProjectLocation();
+		angulo += 0.02;
+		//Inicializar matriz de dimensión 4x4 que servirá como matriz de modelo para almacenar las transformaciones geométricas
 		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -0.4f));
-		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envían al shader como variables de tipo uniform
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -2.0f));
+		model = glm::scale(model, glm::vec3(0.8f, 0.8f, 0.8f));
+		model = glm::rotate(model, glm::radians(angulo), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
-		meshColorList[0]->RenderMeshColor();
+		meshList[1]->RenderMesh();
+
+		//Shader azul para la pirámide del techo
+		shaderList[4].useShader();
+		uniformModel = shaderList[0].getModelLocation();
+		uniformProjection = shaderList[0].getProjectLocation();
+		//Inicializar matriz de dimensión 4x4 que servirá como matriz de modelo para almacenar las transformaciones geométricas
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.0f, 0.65f, -2.0f));
+		model = glm::scale(model, glm::vec3(1.0f, 0.5f, 1.0f));
+		model = glm::rotate(model, glm::radians(angulo), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
+		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		meshList[0]->RenderMesh();
+
+		//Shader verde claro para las ventanas y puertas
+		shaderList[5].useShader();
+		uniformModel = shaderList[0].getModelLocation();
+		uniformProjection = shaderList[0].getProjectLocation();
+		
+		//Ventana 1
+		//Inicializar matriz de dimensión 4x4 que servirá como matriz de modelo para almacenar las transformaciones geométricas
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.0f, 0.65f, -2.0f));
+		model = glm::rotate(model, glm::radians(angulo), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(-0.2f, -0.45f, 0.28f));
+		model = glm::scale(model, glm::vec3(0.25f, 0.25f, 0.25f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
+		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		meshList[1]->RenderMesh();
+
+		//Ventana 2
+		//Inicializar matriz de dimensión 4x4 que servirá como matriz de modelo para almacenar las transformaciones geométricas
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.0f, 0.65f, -2.0f));
+		model = glm::rotate(model, glm::radians(angulo), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(0.2f, -0.45f, 0.28f));
+		model = glm::scale(model, glm::vec3(0.25f, 0.25f, 0.25f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
+		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		meshList[1]->RenderMesh();
+
+		//Puerta
+		//Inicializar matriz de dimensión 4x4 que servirá como matriz de modelo para almacenar las transformaciones geométricas
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.0f, 0.65f, -2.0f));
+		model = glm::rotate(model, glm::radians(angulo), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(0.0f, -0.924f, 0.28f));
+		model = glm::scale(model, glm::vec3(0.25f, 0.25f, 0.25f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
+		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		meshList[1]->RenderMesh();
+
+		//Shader cafe para los troncos de los árboles
+		shaderList[3].useShader();
+		uniformModel = shaderList[0].getModelLocation();
+		uniformProjection = shaderList[0].getProjectLocation();
+
+		//Tronco 1
+		//Inicializar matriz de dimensión 4x4 que servirá como matriz de modelo para almacenar las transformaciones geométricas
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.0f, 0.65f, -2.0f));
+		model = glm::rotate(model, glm::radians(angulo), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(-0.7f, -0.93f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.16f, 0.16f, 0.16f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
+		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		meshList[1]->RenderMesh();
+
+		//Tronco 2
+		//Inicializar matriz de dimensión 4x4 que servirá como matriz de modelo para almacenar las transformaciones geométricas
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.0f, 0.65f, -2.0f));
+		model = glm::rotate(model, glm::radians(angulo), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(0.7f, -0.93f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.16f, 0.16f, 0.16f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
+		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		meshList[1]->RenderMesh();
+
+		//Shader verde oscuro para las copas de los árboles
+		shaderList[6].useShader();
+		uniformModel = shaderList[0].getModelLocation();
+		uniformProjection = shaderList[0].getProjectLocation();
+
+		//Copa 1
+		//Inicializar matriz de dimensión 4x4 que servirá como matriz de modelo para almacenar las transformaciones geométricas
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.0f, 0.65f, -2.0f));
+		model = glm::rotate(model, glm::radians(angulo), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(0.7f, -0.65f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.3f, 0.4f, 0.3f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
+		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		meshList[0]->RenderMesh();
+
+		//Copa 2
+		//Inicializar matriz de dimensión 4x4 que servirá como matriz de modelo para almacenar las transformaciones geométricas
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.0f, 0.65f, -2.0f));
+		model = glm::rotate(model, glm::radians(angulo), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(-0.7f, -0.65f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.3f, 0.4f, 0.3f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
+		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		meshList[0]->RenderMesh();
 		
 		/*
 		//Inicializar matriz de dimensión 4x4 que servirá como matriz de modelo para almacenar las transformaciones geométricas
