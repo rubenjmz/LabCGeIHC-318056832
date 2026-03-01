@@ -105,211 +105,205 @@ meshList.push_back(cubo);
 void CrearLetrasyFiguras()
 {
 	GLfloat vertices_letras[] = {	
-			//X			Y			Z			R		G		B
-			//-1.0f,	-1.0f,		0.5f,			0.0f,	0.0f,	1.0f,
-			//1.0f,	-1.0f,		0.5f,			0.0f,	0.0f,	1.0f,
-			//1.0f,	1.0f,		0.5f,			0.0f,	0.0f,	1.0f,
-			/*1.0f,	1.0f,		0.5f,			1.0f,	0.0f,	0.0f,
-			-1.0f,  1.0f,		0.5f,			1.0f,	0.0f,	0.0f,
-			-1.0f,	-1.0f,		0.5f,			1.0f,	0.0f,	0.0f,*/
+			//X			Y			Z			 R		 G		 B
 			/*Letra R*/
 			// t12 = Polygon(T, R, W1)
-			-0.9f, 0.5f, 0.0f,     	0.0f,	0.0f,	1.0f,
-			-0.9f, 0.9f, 0.0f,     0.0f,	0.0f,	1.0f,
-			-0.848f, 0.848f, 0.0f, 0.0f,	0.0f,	1.0f,
+			-0.9f, 0.5f, 0.0f,					0.0f,	0.0f,	1.0f,
+			-0.9f, 0.9f, 0.0f,					0.0f,	0.0f,	1.0f,
+			-0.848f, 0.848f, 0.0f,				0.0f,	0.0f,	1.0f,
 
 			// t13 = Polygon(W1, R, J1)
-			-0.848f, 0.848f, 0.0f, 0.0f,	0.0f,	1.0f,
-			-0.9f, 0.9f, 0.0f,     0.0f,	0.0f,	1.0f,
-			-0.74f, 0.9f, 0.0f,    0.0f,	0.0f,	1.0f,
+			-0.848f, 0.848f, 0.0f,				0.0f,	0.0f,	1.0f,
+			-0.9f, 0.9f, 0.0f,					0.0f,	0.0f,	1.0f,
+			-0.74f, 0.9f, 0.0f,    				0.0f,	0.0f,	1.0f,
 
 			// t14 = Polygon(W1, I1, J1)
-			-0.848f, 0.848f, 0.0f, 0.0f,	0.0f,	1.0f,
-			-0.82f, 0.848f, 0.0f,  0.0f,	0.0f,	1.0f,
-			-0.74f, 0.9f, 0.0f,    0.0f,	0.0f,	1.0f,
+			-0.848f, 0.848f, 0.0f, 				0.0f,	0.0f,	1.0f,
+			-0.82f, 0.848f, 0.0f,  				0.0f,	0.0f,	1.0f,
+			-0.74f, 0.9f, 0.0f,    				0.0f,	0.0f,	1.0f,
 
 			// t15 = Polygon(I1, J1, T1)
-			-0.82f, 0.848f, 0.0f,  0.0f,	0.0f,	1.0f,
-			-0.74f, 0.9f, 0.0f,    0.0f,	0.0f,	1.0f,
-			-0.752f, 0.848f, 0.0f, 0.0f,	0.0f,	1.0f,
+			-0.82f, 0.848f, 0.0f,  				0.0f,	0.0f,	1.0f,
+			-0.74f, 0.9f, 0.0f,    				0.0f,	0.0f,	1.0f,
+			-0.752f, 0.848f, 0.0f, 				0.0f,	0.0f,	1.0f,
 
 			// t16 = Polygon(T1, J1, K1)
-			-0.752f, 0.848f, 0.0f, 0.0f,	0.0f,	1.0f,
-			-0.74f, 0.9f, 0.0f,    0.0f,	0.0f,	1.0f,
-			-0.72f, 0.9f, 0.0f,    0.0f,	0.0f,	1.0f,
+			-0.752f, 0.848f, 0.0f, 				0.0f,	0.0f,	1.0f,
+			-0.74f, 0.9f, 0.0f,    				0.0f,	0.0f,	1.0f,
+			-0.72f, 0.9f, 0.0f,    				0.0f,	0.0f,	1.0f,
 
 			// t17 = Polygon(T1, L1, K1)
-			-0.752f, 0.848f, 0.0f, 0.0f,	0.0f,	1.0f,
-			-0.71f, 0.899f, 0.0f,  0.0f,	0.0f,	1.0f,
-			-0.72f, 0.9f, 0.0f,    0.0f,	0.0f,	1.0f,
+			-0.752f, 0.848f, 0.0f, 				0.0f,	0.0f,	1.0f,
+			-0.71f, 0.899f, 0.0f,  				0.0f,	0.0f,	1.0f,
+			-0.72f, 0.9f, 0.0f,    				0.0f,	0.0f,	1.0f,
 
 			// t18 = Polygon(T1, L1, M1)
-			-0.752f, 0.848f, 0.0f, 0.0f,	0.0f,	1.0f,
-			-0.71f, 0.899f, 0.0f,  0.0f,	0.0f,	1.0f,
-			-0.704f, 0.896f, 0.0f, 0.0f,	0.0f,	1.0f,
+			-0.752f, 0.848f, 0.0f, 				0.0f,	0.0f,	1.0f,
+			-0.71f, 0.899f, 0.0f,  				0.0f,	0.0f,	1.0f,
+			-0.704f, 0.896f, 0.0f, 				0.0f,	0.0f,	1.0f,
 
 			// t19 = Polygon(T1, M1, N1)
-			-0.752f, 0.848f, 0.0f, 0.0f,	0.0f,	1.0f,
-			-0.704f, 0.896f, 0.0f, 0.0f,	0.0f,	1.0f,
-			-0.701f, 0.89f, 0.0f,  0.0f,	0.0f,	1.0f,
+			-0.752f, 0.848f, 0.0f, 				0.0f,	0.0f,	1.0f,
+			-0.704f, 0.896f, 0.0f, 				0.0f,	0.0f,	1.0f,
+			-0.701f, 0.89f, 0.0f,  				0.0f,	0.0f,	1.0f,
 
 			// t20 = Polygon(T1, N1, S)
-			-0.752f, 0.848f, 0.0f, 0.0f,	0.0f,	1.0f,
-			-0.701f, 0.89f, 0.0f,  0.0f,	0.0f,	1.0f,
-			-0.7f, 0.88f, 0.0f,    0.0f,	0.0f,	1.0f,
+			-0.752f, 0.848f, 0.0f, 				0.0f,	0.0f,	1.0f,
+			-0.701f, 0.89f, 0.0f,  				0.0f,	0.0f,	1.0f,
+			-0.7f, 0.88f, 0.0f,    				0.0f,	0.0f,	1.0f,
 
 			// t21 = Polygon(T1, S, O1)
-			-0.752f, 0.848f, 0.0f, 0.0f,	0.0f,	1.0f,
-			-0.7f, 0.88f, 0.0f,    0.0f,	0.0f,	1.0f,
-			-0.7f, 0.72f, 0.0f,    0.0f,	0.0f,	1.0f,
+			-0.752f, 0.848f, 0.0f, 				0.0f,	0.0f,	1.0f,
+			-0.7f, 0.88f, 0.0f,    				0.0f,	0.0f,	1.0f,
+			-0.7f, 0.72f, 0.0f,    				0.0f,	0.0f,	1.0f,
 
 			// t22 = Polygon(U1, T1, O1)
-			-0.752f, 0.772f, 0.0f, 0.0f,	0.0f,	1.0f,
-			-0.752f, 0.848f, 0.0f, 0.0f,	0.0f,	1.0f,
-			-0.7f, 0.72f, 0.0f,    0.0f,	0.0f,	1.0f,
+			-0.752f, 0.772f, 0.0f, 				0.0f,	0.0f,	1.0f,
+			-0.752f, 0.848f, 0.0f, 				0.0f,	0.0f,	1.0f,
+			-0.7f, 0.72f, 0.0f,    				0.0f,	0.0f,	1.0f,
 
 			// t23 = Polygon(U1, Q1, O1)
-			-0.752f, 0.772f, 0.0f, 0.0f,	0.0f,	1.0f,
-			-0.701f, 0.71f, 0.0f,  0.0f,	0.0f,	1.0f,
-			-0.7f, 0.72f, 0.0f,    0.0f,	0.0f,	1.0f,
+			-0.752f, 0.772f, 0.0f, 				0.0f,	0.0f,	1.0f,
+			-0.701f, 0.71f, 0.0f,  				0.0f,	0.0f,	1.0f,
+			-0.7f, 0.72f, 0.0f,    				0.0f,	0.0f,	1.0f,
 
 			// t24 = Polygon(U1, S1, Q1)
-			-0.752f, 0.772f, 0.0f, 0.0f,	0.0f,	1.0f,
-			-0.704f, 0.704f, 0.0f, 0.0f,	0.0f,	1.0f,
-			-0.701f, 0.71f, 0.0f,  0.0f,	0.0f,	1.0f,
+			-0.752f, 0.772f, 0.0f, 				0.0f,	0.0f,	1.0f,
+			-0.704f, 0.704f, 0.0f, 				0.0f,	0.0f,	1.0f,
+			-0.701f, 0.71f, 0.0f, 				0.0f,	0.0f,	1.0f,
 
 			// t25 = Polygon(U1, R1, S1)
-			-0.752f, 0.772f, 0.0f, 0.0f,	0.0f,	1.0f,
-			-0.71f, 0.701f, 0.0f,  0.0f,	0.0f,	1.0f,
-			-0.704f, 0.704f, 0.0f, 0.0f,	0.0f,	1.0f,
+			-0.752f, 0.772f, 0.0f, 				0.0f,	0.0f,	1.0f,
+			-0.71f, 0.701f, 0.0f,  				0.0f,	0.0f,	1.0f,
+			-0.704f, 0.704f, 0.0f, 				0.0f,	0.0f,	1.0f,
 
 			// t26 = Polygon(U1, P1, R1)
-			-0.752f, 0.772f, 0.0f, 0.0f,	0.0f,	1.0f,
-			-0.72f, 0.7f, 0.0f,    0.0f,	0.0f,	1.0f,
-			-0.71f, 0.701f, 0.0f,  0.0f,	0.0f,	1.0f,
+			-0.752f, 0.772f, 0.0f, 				0.0f,	0.0f,	1.0f,
+			-0.72f, 0.7f, 0.0f,    				0.0f,	0.0f,	1.0f,
+			-0.71f, 0.701f, 0.0f,  				0.0f,	0.0f,	1.0f,
 
 			// t27 = Polygon(U1, G1, P1)
-			-0.752f, 0.772f, 0.0f, 0.0f,	0.0f,	1.0f,
-			-0.748f, 0.7f, 0.0f,   0.0f,	0.0f,	1.0f,
-			-0.72f, 0.7f, 0.0f,    0.0f,	0.0f,	1.0f,
+			-0.752f, 0.772f, 0.0f, 				0.0f,	0.0f,	1.0f,
+			-0.748f, 0.7f, 0.0f,   				0.0f,	0.0f,	1.0f,
+			-0.72f, 0.7f, 0.0f,    				0.0f,	0.0f,	1.0f,
 
 			// t28 = Polygon(H1, G1, U1)
-			-0.82f, 0.772f, 0.0f,  0.0f,	0.0f,	1.0f,
-			-0.748f, 0.7f, 0.0f,   0.0f,	0.0f,	1.0f,
-			-0.752f, 0.772f, 0.0f, 0.0f,	0.0f,	1.0f,
+			-0.82f, 0.772f, 0.0f,  				0.0f,	0.0f,	1.0f,
+			-0.748f, 0.7f, 0.0f,   				0.0f,	0.0f,	1.0f,
+			-0.752f, 0.772f, 0.0f, 				0.0f,	0.0f,	1.0f,
 
 			// t29 = Polygon(H1, E1, G1)
-			-0.82f, 0.772f, 0.0f,  0.0f,	0.0f,	1.0f,
-			-0.8f, 0.7f, 0.0f,     0.0f,	0.0f,	1.0f,
-			-0.748f, 0.7f, 0.0f,   0.0f,	0.0f,	1.0f,
+			-0.82f, 0.772f, 0.0f,  				0.0f,	0.0f,	1.0f,
+			-0.8f, 0.7f, 0.0f,     				0.0f,	0.0f,	1.0f,
+			-0.748f, 0.7f, 0.0f,   				0.0f,	0.0f,	1.0f,
 
 			// t30 = Polygon(H1, W, E1)
-			-0.82f, 0.772f, 0.0f,  0.0f,	0.0f,	1.0f,
-			-0.82f, 0.7f, 0.0f, 0.0f, 0.0f, 1.0f,
-			-0.8f, 0.7f, 0.0f, 0.0f, 0.0f, 1.0f,
+			-0.82f, 0.772f, 0.0f,  				0.0f,	0.0f,	1.0f,
+			-0.82f, 0.7f, 0.0f, 				0.0f, 0.0f, 1.0f,
+			-0.8f, 0.7f, 0.0f, 					0.0f, 0.0f, 1.0f,
 
 			// t31 = Polygon(W1, H1, T)
-			-0.848f, 0.848f, 0.0f, 0.0f, 0.0f, 1.0f,
-			-0.82f, 0.772f, 0.0f, 0.0f, 0.0f, 1.0f,
-			-0.9f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f,
+			-0.848f, 0.848f, 0.0f, 				0.0f, 0.0f, 1.0f,
+			-0.82f, 0.772f, 0.0f, 				0.0f, 0.0f, 1.0f,
+			-0.9f, 0.5f, 0.0f,					0.0f, 0.0f, 1.0f,
 
 			// t32 = Polygon(H1, V, T)
-			-0.82f, 0.772f, 0.0f, 0.0f, 0.0f, 1.0f,
-			-0.82f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f,
-			-0.9f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f,
+			-0.82f, 0.772f, 0.0f,				0.0f, 0.0f, 1.0f,
+			-0.82f, 0.5f, 0.0f,					0.0f, 0.0f, 1.0f,
+			-0.9f, 0.5f, 0.0f,					0.0f, 0.0f, 1.0f,
 
 			// t33 = Polygon(E1, F1, U)
-			-0.8f, 0.7f, 0.0f, 0.0f, 0.0f, 1.0f,
-			-0.752f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f,
-			-0.7f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f,
+			-0.8f, 0.7f, 0.0f,					0.0f, 0.0f, 1.0f,
+			-0.752f, 0.5f, 0.0f,				0.0f, 0.0f, 1.0f,
+			-0.7f, 0.5f, 0.0f,					0.0f, 0.0f, 1.0f,
 
 			// t34 = Polygon(E1, G1, U)
-			-0.8f, 0.7f, 0.0f, 0.0f, 0.0f, 1.0f,
-			-0.748f, 0.7f, 0.0f, 0.0f, 0.0f, 1.0f,
-			-0.7f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f,
+			-0.8f, 0.7f, 0.0f,					0.0f, 0.0f, 1.0f,
+			-0.748f, 0.7f, 0.0f,				0.0f, 0.0f, 1.0f,
+			-0.7f, 0.5f, 0.0f,					0.0f, 0.0f, 1.0f,
 
 			// t35 = Polygon(W1, V1, H1)
-			-0.848f, 0.848f, 0.0f, 0.0f, 0.0f, 1.0f,
-			-0.82f, 0.84f, 0.0f, 0.0f, 0.0f, 1.0f,
-			-0.82f, 0.772f, 0.0f, 0.0f, 0.0f, 1.0f,
+			-0.848f, 0.848f, 0.0f,				0.0f, 0.0f, 1.0f,
+			-0.82f, 0.84f, 0.0f,				0.0f, 0.0f, 1.0f,
+			-0.82f, 0.772f, 0.0f,				0.0f, 0.0f, 1.0f,
 
 			/*Letra J*/
 			// t36 = Polygon(Z1, F2, Z)
-			-0.02f, 0.2f, 0.0f, 0.5f, 0.0f, 0.5f,
-			0.06f, -0.2f, 0.0f, 0.5f, 0.0f, 0.5f,
-			0.06f, 0.2f, 0.0f, 0.5f, 0.0f, 0.5f,
+			-0.02f, 0.2f, 0.0f,					0.5f, 0.0f, 0.5f,
+			0.06f, -0.2f, 0.0f,					0.5f, 0.0f, 0.5f,
+			0.06f, 0.2f, 0.0f,					0.5f, 0.0f, 0.5f,
 
 			// t37 = Polygon(H2, Z1, F2)
-			-0.02f, -0.16f, 0.0f, 0.5f, 0.0f, 0.5f,
-			-0.02f, 0.2f, 0.0f, 0.5f, 0.0f, 0.5f,
-			0.06f, -0.2f, 0.0f, 0.5f, 0.0f, 0.5f,
+			-0.02f, -0.16f, 0.0f,				0.5f, 0.0f, 0.5f,
+			-0.02f, 0.2f, 0.0f,					0.5f, 0.0f, 0.5f,
+			0.06f, -0.2f, 0.0f,					0.5f, 0.0f, 0.5f,
 
 			// t38 = Polygon(E2, H2, F2)
-			-0.06f, -0.2f, 0.0f, 0.5f, 0.0f, 0.5f,
-			-0.02f, -0.16f, 0.0f, 0.5f, 0.0f, 0.5f,
-			0.06f, -0.2f, 0.0f, 0.5f, 0.0f, 0.5f,
+			-0.07f, -0.2f, 0.0f,				0.5f, 0.0f, 0.5f,
+			-0.02f, -0.16f, 0.0f,				0.5f, 0.0f, 0.5f,
+			0.06f, -0.2f, 0.0f,					0.5f, 0.0f, 0.5f,
 
 			// t39 = Polygon(G2, E2, H2)
-			-0.06f, -0.16f, 0.0f, 0.5f, 0.0f, 0.5f,
-			-0.06f, -0.2f, 0.0f, 0.5f, 0.0f, 0.5f,
-			-0.02f, -0.16f, 0.0f, 0.5f, 0.0f, 0.5f,
+			-0.07f, -0.16f, 0.0f,				0.5f, 0.0f, 0.5f,
+			-0.07f, -0.2f, 0.0f,				0.5f, 0.0f, 0.5f,
+			-0.02f, -0.16f, 0.0f,				0.5f, 0.0f, 0.5f,
 
 			/*Letra E*/
 
 			// t1 = Polygon(G, E, J)
-			0.7f, -0.9f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.7f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.752f, -0.552f, 0.0f, 1.0f, 0.0f, 1.0f,
+			0.7f, -0.9f, 0.0f,					1.0f, 0.0f, 1.0f,
+			0.7f, -0.5f, 0.0f,					1.0f, 0.0f, 1.0f,
+			0.752f, -0.552f,0.0f,				1.0f, 0.0f, 1.0f,
 
 			// t2 = Polygon(E, F, J)
-			0.7f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.9f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.752f, -0.552f, 0.0f, 1.0f, 0.0f, 1.0f,
+			0.7f, -0.5f, 0.0f,					1.0f, 0.0f, 1.0f,
+			0.9f, -0.5f, 0.0f,					1.0f, 0.0f, 1.0f,
+			0.752f, -0.552f, 0.0f,				1.0f, 0.0f, 1.0f,
 
 			// t3 = Polygon(J, F, I)
-			0.752f, -0.552f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.9f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.9f, -0.552f, 0.0f, 1.0f, 0.0f, 1.0f,
+			0.752f, -0.552f, 0.0f,				1.0f, 0.0f, 1.0f,
+			0.9f, -0.5f, 0.0f,					1.0f, 0.0f, 1.0f,
+			0.9f, -0.552f, 0.0f,				1.0f, 0.0f, 1.0f,
 
 			// t4 = Polygon(J, L, O)
-			0.752f, -0.552f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.78f, -0.66f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.78f, -0.712f, 0.0f, 1.0f, 0.0f, 1.0f,
+			0.752f, -0.552f, 0.0f,				1.0f, 0.0f, 1.0f,
+			0.78f, -0.66f, 0.0f,				1.0f, 0.0f, 1.0f,
+			0.78f, -0.712f, 0.0f,				1.0f, 0.0f, 1.0f,
 
 			// t5 = Polygon(J, O, G)
-			0.752f, -0.552f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.78f, -0.712f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.7f, -0.9f, 0.0f, 1.0f, 0.0f, 1.0f,
+			0.752f, -0.552f, 0.0f,				1.0f, 0.0f, 1.0f,
+			0.78f, -0.712f, 0.0f,				1.0f, 0.0f, 1.0f,
+			0.7f, -0.9f, 0.0f,					1.0f, 0.0f, 1.0f,
 
 			// t6 = Polygon(L, N, O)
-			0.78f, -0.66f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.82f, -0.712f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.78f, -0.712f, 0.0f, 1.0f, 0.0f, 1.0f,
+			0.78f, -0.66f, 0.0f,				1.0f, 0.0f, 1.0f,
+			0.82f, -0.712f, 0.0f,				1.0f, 0.0f, 1.0f,
+			0.78f, -0.712f, 0.0f,				1.0f, 0.0f, 1.0f,
 
 			// t7 = Polygon(L, M, N)
-			0.78f, -0.66f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.82f, -0.66f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.82f, -0.712f, 0.0f, 1.0f, 0.0f, 1.0f,
+			0.78f, -0.66f, 0.0f,				1.0f, 0.0f, 1.0f,
+			0.82f, -0.66f, 0.0f,				1.0f, 0.0f, 1.0f,
+			0.82f, -0.712f, 0.0f,				1.0f, 0.0f, 1.0f,
 
 			// t8 = Polygon(O, P, G)
-			0.78f, -0.712f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.78f, -0.848f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.7f, -0.9f, 0.0f, 1.0f, 0.0f, 1.0f,
+			0.78f, -0.712f, 0.0f,				1.0f, 0.0f, 1.0f,
+			0.78f, -0.848f, 0.0f,				1.0f, 0.0f, 1.0f,
+			0.7f, -0.9f, 0.0f,					1.0f, 0.0f, 1.0f,
 
 			// t9 = Polygon(G, P, Q)
-			0.7f, -0.9f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.78f, -0.848f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.9f, -0.848f, 0.0f, 1.0f, 0.0f, 1.0f,
+			0.7f, -0.9f, 0.0f,					1.0f, 0.0f, 1.0f,
+			0.78f, -0.848f, 0.0f,				1.0f, 0.0f, 1.0f,
+			0.9f, -0.848f, 0.0f,				1.0f, 0.0f, 1.0f,
 
 			// t10 = Polygon(G, H, Q)
-			0.7f, -0.9f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.9f, -0.9f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.9f, -0.848f, 0.0f, 1.0f, 0.0f, 1.0f,
+			0.7f, -0.9f, 0.0f,					1.0f, 0.0f, 1.0f,
+			0.9f, -0.9f, 0.0f,					1.0f, 0.0f, 1.0f,
+			0.9f, -0.848f, 0.0f,				1.0f, 0.0f, 1.0f,
 
 			// t11 = Polygon(J, K, L)
-			0.752f, -0.552f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.78f, -0.56f, 0.0f, 1.0f, 0.0f, 1.0f,
-			0.78f, -0.66f, 0.0f, 1.0f, 0.0f, 1.0f,
+			0.752f, -0.552f, 0.0f,				1.0f, 0.0f, 1.0f,
+			0.78f, -0.56f, 0.0f,				1.0f, 0.0f, 1.0f,
+			0.78f, -0.66f, 0.0f,				1.0f, 0.0f, 1.0f,
 			
 	};
 	MeshColor *letras = new MeshColor();
@@ -421,51 +415,18 @@ int main()
 		//Limpiar la ventana
 		glClearColor(0.0f,0.0f,0.0f,1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //Se agrega limpiar el buffer de profundidad
-		
-													
-		////Para las letras hay que usar el segundo set de shaders con índice 1 en ShaderList 
-		//shaderList[1].useShader();
-		//uniformModel = shaderList[1].getModelLocation();
-		//uniformProjection = shaderList[1].getProjectLocation();
 
-		//model = glm::mat4(1.0);
-		//model = glm::translate(model, glm::vec3(0.0f, 0.0f, -0.4f));
-		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
-		//glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envían al shader como variables de tipo uniform
-		//glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
-		//meshColorList[0]->RenderMeshColor();
+		//Para las letras hay que usar el segundo set de shaders con índice 1 en ShaderList 
+		shaderList[1].useShader();
+		uniformModel = shaderList[1].getModelLocation();
+		uniformProjection = shaderList[1].getProjectLocation();
 
-		//------------------------------------------------------------------------//
-		//------------------------------Prueba------------------------------------//
-
-		////Shader rojo para el cubo que representa las paredes de la casa
-		//shaderList[2].useShader();
-		//uniformModel = shaderList[0].getModelLocation();
-		//uniformProjection = shaderList[0].getProjectLocation();
-		//angulo += 0.01;
-		////Inicializar matriz de dimensión 4x4 que servirá como matriz de modelo para almacenar las transformaciones geométricas
-		//glm::mat4 modelCasa = glm::mat4(1.0f);
-		//modelCasa = glm::translate(modelCasa, glm::vec3(0.0f, 0.0f, -2.0f));
-		//modelCasa = glm::scale(modelCasa, glm::vec3(0.8f, 0.8f, 0.8f));
-		//modelCasa = glm::rotate(modelCasa, glm::radians(angulo), glm::vec3(0.0f, 1.0f, 0.0f));
-		//glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(modelCasa));//FALSE ES PARA QUE NO SEA TRANSPUESTA
-		//glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
-		//meshList[1]->RenderMesh();
-
-		////Shader verde claro para las ventanas y puertas
-		//shaderList[5].useShader();
-		//uniformModel = shaderList[0].getModelLocation();
-		//uniformProjection = shaderList[0].getProjectLocation();
-		//angulo += 0.01;
-		////Inicializar matriz de dimensión 4x4 que servirá como matriz de modelo para almacenar las transformaciones geométricas
-		//glm::mat4 modelVentana = modelCasa;
-		//modelVentana = glm::translate(modelVentana, glm::vec3(-0.2f, 0.2f, 0.4f));
-		//modelVentana = glm::scale(modelVentana, glm::vec3(0.25f, 0.25f, 0.25f));
-		//glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(modelVentana));//FALSE ES PARA QUE NO SEA TRANSPUESTA
-		//glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
-		//meshList[1]->RenderMesh();
-		
-		//------------------------------------------------------------------------//
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -0.4f));
+		model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envían al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		meshColorList[0]->RenderMeshColor();
 
 		//Shader rojo para el cubo que representa las paredes de la casa
 		shaderList[2].useShader();
@@ -585,57 +546,6 @@ int main()
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		meshList[0]->RenderMesh();
-		
-		/*
-		//Inicializar matriz de dimensión 4x4 que servirá como matriz de modelo para almacenar las transformaciones geométricas
-		//cuadrado rojo
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(0.0f, -0.5f, -4.0f));
-		model = glm::scale(model, glm::vec3(1.5f, 1.5f, 1.5));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envían al shader como variables de tipo uniform
-		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
-		meshColorList[3]->RenderMeshColor();
-
-		//cuadrado verde 1
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(-0.3f, -0.1f, -3.0f));
-		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envían al shader como variables de tipo uniform
-		meshColorList[2]->RenderMeshColor();
-
-		//cuadrado verde 2
-		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(0.3f, -0.1f, -3.0f));
-		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envían al shader como variables de tipo uniform
-		meshColorList[2]->RenderMeshColor();
-
-		*/
-
-		////Para el cubo y la pirámide se usa el primer set de shaders con índice 0 en ShaderList
-		//shaderList[0].useShader(); 
-		//uniformModel = shaderList[0].getModelLocation();
-		//uniformProjection = shaderList[0].getProjectLocation();
-		//angulo += 0.01;
-		////Inicializar matriz de dimensión 4x4 que servirá como matriz de modelo para almacenar las transformaciones geométricas
-		//model = glm::mat4(1.0);
-		//model = glm::translate(model, glm::vec3(0.0f, 0.0f, -3.0f));
-		//model = glm::rotate(model, glm::radians(angulo), glm::vec3(0.0f, 1.0f, 0.0f));
-		//glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
-		//glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
-		//meshList[1]->RenderMesh();
-		//
-		////piramide
-		//model = glm::mat4(1.0);
-		//model = glm::translate(model, glm::vec3(-1.25f, 1.25f, -4.0f));
-		//glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
-		//meshList[0]->RenderMesh();
-
-		////para usar el shader rojo
-		//shaderList[2].useShader(); 
-		//uniformModel = shaderList[2].getModelLocation();
-		//uniformProjection = shaderList[2].getProjectLocation();
-
 
 		glUseProgram(0);
 		mainWindow.swapBuffers();
@@ -643,20 +553,3 @@ int main()
 	}
 	return 0;
 }
-// inicializar matriz: glm::mat4 model(1.0);
-// reestablecer matriz: model = glm::mat4(1.0);
-//Traslación
-//model = glm::translate(model, glm::vec3(0.0f, 0.0f, -5.0f));
-//////////////// ROTACIÓN //////////////////
-//model = glm::rotate(model, 45 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-////////////////  ESCALA ////////////////
-//model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
-///////////////////// T+R////////////////
-/*model = glm::translate(model, glm::vec3(valor, 0.0f, 0.0f));
-model = glm::rotate(model, 45 * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
-model = glm::rotate(model, glm::radians(angulo), glm::vec3(0.0f, 1.0f, 0.0f));
-*/
-/////////////R+T//////////
-/*model = glm::rotate(model, 45 * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
-model = glm::translate(model, glm::vec3(valor, 0.0f, 0.0f));
-*/
