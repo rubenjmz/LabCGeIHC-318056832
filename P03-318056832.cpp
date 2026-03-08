@@ -1,4 +1,4 @@
-//pr·ctica 3: Modelado GeomÈtrico y C·mara SintÈtica.
+//pr√°ctica 3: Modelado Geom√©trico y C√°mara Sint√©tica.
 #include <stdio.h>
 #include <string.h>
 #include<cmath>
@@ -10,7 +10,7 @@
 #include<gtc\matrix_transform.hpp>
 #include<gtc\type_ptr.hpp>
 #include <gtc\random.hpp>
-//clases para dar orden y limpieza al cÚdigo
+//clases para dar orden y limpieza al c√≤digo
 #include"Mesh.h"
 #include"Shader.h"
 #include"Sphere.h"
@@ -109,12 +109,12 @@ void CrearPiramideTriangularColor()
 	 0.48f,  0.02f,  0.33f,			1.0f,	0.0f,	0.0f,
 	 0.00f,  0.81f,  0.05f,			1.0f,	0.0f,	0.0f,
 
-	 // CARA 2 (Derecha) - Desplazada hacia la derecha-atr·s
+	 // CARA 2 (Derecha) - Desplazada hacia la derecha-atr√°s
 	  0.52f,  0.02f,  0.28f,			0.0f,	1.0f,	0.0f,
 	  0.03f,  0.02f, -0.58f,			0.0f,	1.0f,	0.0f,
 	  0.03f,  0.81f, -0.01f,			0.0f,	1.0f,	0.0f,
 
-	  // CARA 3 (Izquierda) - Desplazada hacia la izquierda-atr·s
+	  // CARA 3 (Izquierda) - Desplazada hacia la izquierda-atr√°s
 	  -0.03f,  0.02f, -0.58f,			0.0f,	0.0f,	1.0f,
 	  -0.52f,  0.02f,  0.28f,			0.0f,	0.0f,	1.0f,
 	  -0.03f,  0.81f, -0.02f,			0.0f,	0.0f,	1.0f,
@@ -131,7 +131,7 @@ void CrearPiramideTriangularColor()
 	meshColorList.push_back(piramide_triangular_color);
 }
 
-// Pir·mide triangular regular
+// Pir√°mide triangular regular
 void CrearPiramideTriangular()
 {
 	unsigned int indices_piramide_triangular[] = {
@@ -155,25 +155,25 @@ void CrearPiramideTriangular()
 
 }
 /*
-Crear cilindro, cono y esferas con arreglos din·micos vector creados en el Semestre 2023 - 1 : por S·nchez PÈrez Omar Alejandro
+Crear cilindro, cono y esferas con arreglos din√°micos vector creados en el Semestre 2023 - 1 : por S√°nchez P√©rez Omar Alejandro
 */
 void CrearCilindro(int res, float R) {
 
 	//constantes utilizadas en los ciclos for
 	int n, i;
-	//c·lculo del paso interno en la circunferencia y variables que almacenar·n cada coordenada de cada vÈrtice
+	//c√°lculo del paso interno en la circunferencia y variables que almacenar√°n cada coordenada de cada v√©rtice
 	GLfloat dt = 2 * PI / res, x, z, y = -0.5f;
 
 	vector<GLfloat> vertices;
 	vector<unsigned int> indices;
 
-	//ciclo for para crear los vÈrtices de las paredes del cilindro
+	//ciclo for para crear los v√©rtices de las paredes del cilindro
 	for (n = 0; n <= (res); n++) {
 		if (n != res) {
 			x = R * cos((n)*dt);
 			z = R * sin((n)*dt);
 		}
-		//caso para terminar el cÌrculo
+		//caso para terminar el c√≠rculo
 		else {
 			x = R * cos((0) * dt);
 			z = R * sin((0) * dt);
@@ -240,7 +240,7 @@ void CrearCilindro(int res, float R) {
 		}
 	}
 
-	//Se generan los indices de los vÈrtices
+	//Se generan los indices de los v√©rtices
 	for (i = 0; i < vertices.size(); i++) indices.push_back(i);
 
 	//se genera el mesh del cilindro
@@ -249,12 +249,12 @@ void CrearCilindro(int res, float R) {
 	meshList.push_back(cilindro);
 }
 
-//funciÛn para crear un cono
-void CrearCono(int res, float R) {//Paso la resoluciÛn y el tamaÒo del radio
+//funci√≥n para crear un cono
+void CrearCono(int res, float R) {//Paso la resoluci√≥n y el tama√±o del radio
 
 	//constantes utilizadas en los ciclos for
 	int n, i;
-	//c·lculo del paso interno en la circunferencia y variables que almacenar·n cada coordenada de cada vÈrtice
+	//c√°lculo del paso interno en la circunferencia y variables que almacenar√°n cada coordenada de cada v√©rtice
 	GLfloat dt = 2 * PI / res, x, z, y = -0.5f;
 
 	vector<GLfloat> vertices;
@@ -262,10 +262,10 @@ void CrearCono(int res, float R) {//Paso la resoluciÛn y el tamaÒo del radio
 
 	//caso inicial para crear el cono
 	vertices.push_back(0.0);
-	vertices.push_back(0.5);//VÈrtice de la punta
+	vertices.push_back(0.5);//V√©rtice de la punta
 	vertices.push_back(0.0);
 
-	//ciclo for para crear los vÈrtices de la circunferencia del cono
+	//ciclo for para crear los v√©rtices de la circunferencia del cono
 	for (n = 0; n <= (res); n++) {
 		x = R * cos((n)*dt);
 		z = R * sin((n)*dt);
@@ -284,7 +284,7 @@ void CrearCono(int res, float R) {//Paso la resoluciÛn y el tamaÒo del radio
 		}
 	}
 	vertices.push_back(R * cos(0) * dt);
-	vertices.push_back(-0.5);//VÈrtice de la base
+	vertices.push_back(-0.5);//V√©rtice de la base
 	vertices.push_back(R * sin(0) * dt);
 
 
@@ -296,7 +296,7 @@ void CrearCono(int res, float R) {//Paso la resoluciÛn y el tamaÒo del radio
 	meshList.push_back(cono);
 }
 
-//funciÛn para crear pir·mide cuadrangular unitaria
+//funci√≥n para crear pir√°mide cuadrangular unitaria
 void CrearPiramideCuadrangular()
 {
 	vector<unsigned int> piramidecuadrangular_indices = {
@@ -338,27 +338,27 @@ int main()
 {
 	mainWindow = Window(800, 600);
 	mainWindow.Initialise();
-	//Cilindro y cono reciben resoluciÛn (slices, rebanadas) y Radio de circunferencia de la base y tapa
+	//Cilindro y cono reciben resoluci√≥n (slices, rebanadas) y Radio de circunferencia de la base y tapa
 
-	CrearCubo();//Ìndice 0 en MeshList
-	CrearPiramideTriangular();//Ìndice 1 en MeshList
-	CrearCilindro(15, 1.0f);//Ìndice 2 en MeshList
-	CrearCono(25, 2.0f);//Ìndice 3 en MeshList
-	CrearPiramideCuadrangular();//Ìndice 4 en MeshList
+	CrearCubo();//√≠ndice 0 en MeshList
+	CrearPiramideTriangular();//√≠ndice 1 en MeshList
+	CrearCilindro(15, 1.0f);//√≠ndice 2 en MeshList
+	CrearCono(25, 2.0f);//√≠ndice 3 en MeshList
+	CrearPiramideCuadrangular();//√≠ndice 4 en MeshList
 	CrearPiramideTriangularColor();//indice 0 en MeshColor
 	CreateShaders();
 
 
 
-	/*C·mara se usa el comando: glm::lookAt(vector de posiciÛn, vector de orientaciÛn, vector up));
+	/*C√°mara se usa el comando: glm::lookAt(vector de posici√≥n, vector de orientaci√≥n, vector up));
 	En la clase Camera se reciben 5 datos:
-	glm::vec3 vector de posiciÛn,
+	glm::vec3 vector de posici√≥n,
 	glm::vec3 vector up,
-	GlFloat yaw rotaciÛn para girar hacia la derecha e izquierda
-	GlFloat pitch rotaciÛn para inclinar hacia arriba y abajo
+	GlFloat yaw rotaci√≥n para girar hacia la derecha e izquierda
+	GlFloat pitch rotaci√≥n para inclinar hacia arriba y abajo
 	GlFloat velocidad de desplazamiento,
 	GlFloat velocidad de vuelta o de giro
-	Se usa el Mouse y las teclas WASD y su posiciÛn inicial est· en 0,0,1 y ve hacia 0,0,-1.
+	Se usa el Mouse y las teclas WASD y su posici√≥n inicial est√° en 0,0,1 y ve hacia 0,0,-1.
 	*/
 
 	camera = Camera(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -60.0f, 0.0f, 0.3f, 0.3f);
@@ -388,7 +388,7 @@ int main()
 		lastTime = now;
 		//Recibir eventos del usuario
 		glfwPollEvents();
-		//C·mara
+		//C√°mara
 		camera.keyControl(mainWindow.getsKeys(), deltaTime);
 		camera.mouseControl(mainWindow.getXChange(), mainWindow.getYChange());
 
@@ -403,7 +403,7 @@ int main()
 		uniformColor = shaderList[0].getColorLocation();
 
 		model = glm::mat4(1.0);
-		//TraslaciÛn inicial para posicionar en -Z a los objetos
+		//Traslaci√≥n inicial para posicionar en -Z a los objetos
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -3.0f));
 		//otras transformaciones para el objeto
 		model = glm::scale(model, glm::vec3(4.43f, 4.43f, 4.43f));
@@ -412,14 +412,14 @@ int main()
 		model = glm::rotate(model, glm::radians(mainWindow.getrotaz()), glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::translate(model, glm::vec3(0.0f, 0.105f, 0.0f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		//la lÌnea de proyecciÛn solo se manda una vez a menos que en tiempo de ejecuciÛn
-		//se programe cambio entre proyecciÛn ortogonal y perspectiva
+		//la l√≠nea de proyecci√≥n solo se manda una vez a menos que en tiempo de ejecuci√≥n
+		//se programe cambio entre proyecci√≥n ortogonal y perspectiva
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		color = glm::vec3(0.0f, 0.0f, 0.0f);
 		glUniform3fv(uniformColor, 1, glm::value_ptr(color)); //para cambiar el color del objetos
-		meshList[1]->RenderMesh(); //dibuja cubo y pir·mide triangular
-		//meshList[3]->RenderMeshGeometry(); //dibuja las figuras geomÈtricas cilindro, cono, pir·mide base cuadrangular
+		meshList[1]->RenderMesh(); //dibuja cubo y pir√°mide triangular
+		//meshList[3]->RenderMeshGeometry(); //dibuja las figuras geom√©tricas cilindro, cono, pir√°mide base cuadrangular
 		//sp.render(); //dibuja esfera
 
 
@@ -437,7 +437,7 @@ int main()
 		model = glm::rotate(model, glm::radians(mainWindow.getrotay()), glm::vec3(0.0f, 1.0f, 0.0f));  //al presionar la tecla Y se rota sobre el eje y
 		model = glm::rotate(model, glm::radians(mainWindow.getrotaz()), glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::translate(model, glm::vec3(0.0f, 2.12f, -0.01f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
@@ -450,27 +450,27 @@ int main()
 		model = glm::rotate(model, glm::radians(mainWindow.getrotay()), glm::vec3(0.0f, 1.0f, 0.0f));  //al presionar la tecla Y se rota sobre el eje y
 		model = glm::rotate(model, glm::radians(mainWindow.getrotaz()), glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::translate(model, glm::vec3(-0.5257f, 1.25f, 0.29f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
 
 		//3
 		model = glm::mat4(1.0);
-		// 1. Posicionamiento en la escena (Igual que la pir·mide negra)
+		// 1. Posicionamiento en la escena (Igual que la pir√°mide negra)
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -3.0f));
-		// 2. ROTACIONES DE TECLADO (Giro armÛnico respecto al centro)
+		// 2. ROTACIONES DE TECLADO (Giro arm√≥nico respecto al centro)
 		model = glm::rotate(model, glm::radians(mainWindow.getrotax()), glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(mainWindow.getrotay()), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(mainWindow.getrotaz()), glm::vec3(0.0f, 0.0f, 1.0f));
-		// 3. Transformaciones locales (Escala y posiciÛn relativa al centro)
+		// 3. Transformaciones locales (Escala y posici√≥n relativa al centro)
 		model = glm::scale(model, glm::vec3(1.35f, 1.35f, 1.35f));
-		// Ajustamos la traslaciÛn local (Y negativa para que quede abajo o seg˙n tu diseÒo)
+		// Ajustamos la traslaci√≥n local (Y negativa para que quede abajo o seg√∫n tu dise√±o)
 		model = glm::translate(model, glm::vec3(0.0f, 1.9f, 0.06f));
-		// 4. InversiÛn (Giro de 180 grados sobre sÌ misma)
+		// 4. Inversi√≥n (Giro de 180 grados sobre s√≠ misma)
 		model = glm::rotate(model, 180.0f * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::rotate(model, 39.0f * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
@@ -483,7 +483,7 @@ int main()
 		model = glm::rotate(model, glm::radians(mainWindow.getrotay()), glm::vec3(0.0f, 1.0f, 0.0f));  //al presionar la tecla Y se rota sobre el eje y
 		model = glm::rotate(model, glm::radians(mainWindow.getrotaz()), glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::translate(model, glm::vec3(0.5257f, 1.25f, 0.29f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
@@ -496,7 +496,7 @@ int main()
 		model = glm::rotate(model, glm::radians(mainWindow.getrotay()), glm::vec3(0.0f, 1.0f, 0.0f));  //al presionar la tecla Y se rota sobre el eje y
 		model = glm::rotate(model, glm::radians(mainWindow.getrotaz()), glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::translate(model, glm::vec3(-1.062f, 0.38f, 0.6f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
@@ -511,7 +511,7 @@ int main()
 		model = glm::translate(model, glm::vec3(-0.5257f, 1.02f, 0.38f));
 		model = glm::rotate(model, 180.0f * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::rotate(model, 40.47f * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
@@ -524,7 +524,7 @@ int main()
 		model = glm::rotate(model, glm::radians(mainWindow.getrotay()), glm::vec3(0.0f, 1.0f, 0.0f));  //al presionar la tecla Y se rota sobre el eje y
 		model = glm::rotate(model, glm::radians(mainWindow.getrotaz()), glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::translate(model, glm::vec3(0.0f, 0.38f, 0.6f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
@@ -539,7 +539,7 @@ int main()
 		model = glm::translate(model, glm::vec3(0.5257f, 1.02f, 0.38f));
 		model = glm::rotate(model, 180.0f * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::rotate(model, 40.47f * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
@@ -552,7 +552,7 @@ int main()
 		model = glm::rotate(model, glm::radians(mainWindow.getrotay()), glm::vec3(0.0f, 1.0f, 0.0f));  //al presionar la tecla Y se rota sobre el eje y
 		model = glm::rotate(model, glm::radians(mainWindow.getrotaz()), glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::translate(model, glm::vec3(1.062f, 0.38f, 0.6f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
@@ -569,7 +569,7 @@ int main()
 		model = glm::rotate(model, -60.0f * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::rotate(model, 40.47f * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, 120.0f * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
@@ -582,7 +582,7 @@ int main()
 		model = glm::rotate(model, glm::radians(mainWindow.getrotay()), glm::vec3(0.0f, 1.0f, 0.0f));  //al presionar la tecla Y se rota sobre el eje y
 		model = glm::rotate(model, glm::radians(mainWindow.getrotaz()), glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::translate(model, glm::vec3(0.0f, 1.25f, -0.63f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
@@ -595,7 +595,7 @@ int main()
 		model = glm::rotate(model, glm::radians(mainWindow.getrotay()), glm::vec3(0.0f, 1.0f, 0.0f));  //al presionar la tecla Y se rota sobre el eje y
 		model = glm::rotate(model, glm::radians(mainWindow.getrotaz()), glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::translate(model, glm::vec3(0.0f, 0.38f, -1.25f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
@@ -612,7 +612,7 @@ int main()
 		model = glm::rotate(model, -60.0f * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::rotate(model, 40.47f * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, 120.0f * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
@@ -625,7 +625,7 @@ int main()
 		model = glm::rotate(model, glm::radians(mainWindow.getrotay()), glm::vec3(0.0f, 1.0f, 0.0f));  //al presionar la tecla Y se rota sobre el eje y
 		model = glm::rotate(model, glm::radians(mainWindow.getrotaz()), glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::translate(model, glm::vec3(-0.53f, 0.38f, -0.32f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
@@ -642,7 +642,7 @@ int main()
 		model = glm::rotate(model, -60.0f * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::rotate(model, 40.47f * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, 120.0f * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
@@ -659,7 +659,7 @@ int main()
 		model = glm::rotate(model, 60.0f * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::rotate(model, 40.47f * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, 240.0f * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
@@ -676,7 +676,7 @@ int main()
 		model = glm::rotate(model, 60.0f * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::rotate(model, 40.47f * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, 240.0f * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
@@ -693,7 +693,7 @@ int main()
 		model = glm::rotate(model, 60.0f * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::rotate(model, 40.47f * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::rotate(model, 240.0f * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
@@ -706,7 +706,7 @@ int main()
 		model = glm::rotate(model, glm::radians(mainWindow.getrotay()), glm::vec3(0.0f, 1.0f, 0.0f));  //al presionar la tecla Y se rota sobre el eje y
 		model = glm::rotate(model, glm::radians(mainWindow.getrotaz()), glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::translate(model, glm::vec3(0.53f, 0.38f, -0.32f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
@@ -720,7 +720,7 @@ int main()
 		model = glm::rotate(model, glm::radians(mainWindow.getrotaz()), glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::translate(model, glm::vec3(-0.53f, 0.38f, 0.29f));
 		model = glm::rotate(model, 180.0f * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
@@ -734,12 +734,12 @@ int main()
 		model = glm::rotate(model, glm::radians(mainWindow.getrotaz()), glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::translate(model, glm::vec3(0.53f, 0.38f, 0.29f));
 		model = glm::rotate(model, 180.0f * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
 
-		// 21
+		// 22
 		model = glm::mat4(1.0);
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -3.0f));
 		model = glm::scale(model, glm::vec3(1.35f, 1.35f, 1.35f));
@@ -748,7 +748,7 @@ int main()
 		model = glm::rotate(model, glm::radians(mainWindow.getrotaz()), glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::translate(model, glm::vec3(0.0f, 0.38f, -0.65f));
 		model = glm::rotate(model, 180.0f * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		meshColorList[0]->RenderMeshColor();
@@ -766,7 +766,7 @@ int main()
 		//model = glm::rotate(model, 40.47f * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
 		//model = glm::rotate(model, 120.0f * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
 
-		//glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se envÌan al shader como variables de tipo uniform
+		//glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA y se env√≠an al shader como variables de tipo uniform
 		//glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		//glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		//meshColorList[0]->RenderMeshColor();
@@ -774,7 +774,7 @@ int main()
 
 
 		//model = glm::mat4(1.0);
-		////TraslaciÛn inicial para posicionar en -Z a los objetos
+		////Traslaci√≥n inicial para posicionar en -Z a los objetos
 		//model = glm::translate(model, glm::vec3(0.0f, 0.0f, -3.0f));
 		////otras transformaciones para el objeto
 		//model = glm::scale(model, glm::vec3(1.0f,1.0f,1.0f));
@@ -782,21 +782,21 @@ int main()
 		//model = glm::rotate(model, glm::radians(mainWindow.getrotay()), glm::vec3(0.0f, 1.0f, 0.0f));  //al presionar la tecla Y se rota sobre el eje y
 		//model = glm::rotate(model, glm::radians(mainWindow.getrotaz()), glm::vec3(0.0f, 0.0f, 1.0f));
 		//glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		////la lÌnea de proyecciÛn solo se manda una vez a menos que en tiempo de ejecuciÛn
-		////se programe cambio entre proyecciÛn ortogonal y perspectiva
+		////la l√≠nea de proyecci√≥n solo se manda una vez a menos que en tiempo de ejecuci√≥n
+		////se programe cambio entre proyecci√≥n ortogonal y perspectiva
 		//glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		//glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		//color = glm::vec3(0.0f, 0.0f, 1.0f);
 		//glUniform3fv(uniformColor, 1, glm::value_ptr(color)); //para cambiar el color del objetos
 		//meshColorList[0]->RenderMeshColor();
-		////meshList[1]->RenderMesh(); //dibuja cubo y pir·mide triangular
-		////meshList[3]->RenderMeshGeometry(); //dibuja las figuras geomÈtricas cilindro, cono, pir·mide base cuadrangular
+		////meshList[1]->RenderMesh(); //dibuja cubo y pir√°mide triangular
+		////meshList[3]->RenderMeshGeometry(); //dibuja las figuras geom√©tricas cilindro, cono, pir√°mide base cuadrangular
 		////sp.render(); //dibuja esfera
 
 		//model = glm::mat4(1.0f);
 		//color = glm::vec3(0.0f, 0.0f, 1.0f);
 		//glUniform3fv(uniformColor, 1, glm::value_ptr(color));
-		////Opcional duplicar esta traslaciÛn inicial para posicionar en -Z a los objetos en el mismo punto
+		////Opcional duplicar esta traslaci√≥n inicial para posicionar en -Z a los objetos en el mismo punto
 		////model = glm::translate(model, glm::vec3(0.0f, 0.0f, -3.0f));
 		//model = glm::translate(model, glm::vec3(0.0f, 0.755f, -2.5f));
 		//model = glm::scale(model, glm::vec3(1.5f, 0.5f, 1.5f));
@@ -804,12 +804,12 @@ int main()
 		//meshList[4]->RenderMeshGeometry();
 
 		////Techo
-		////ejercicio: Instanciar primitivas geomÈtricas para recrear el dibujo de la pr·ctica pasada en 3D,
+		////ejercicio: Instanciar primitivas geom√©tricas para recrear el dibujo de la pr√°ctica pasada en 3D,
 		////se requiere que exista piso y la casa tiene una ventana azul circular justo en medio de la pared trasera y solo 1 puerta frontal.
 		//model = glm::mat4(1.0f);
 		//color = glm::vec3(0.0f, 0.0f, 1.0f);
 		//glUniform3fv(uniformColor, 1, glm::value_ptr(color));
-		////Opcional duplicar esta traslaciÛn inicial para posicionar en -Z a los objetos en el mismo punto
+		////Opcional duplicar esta traslaci√≥n inicial para posicionar en -Z a los objetos en el mismo punto
 		////model = glm::translate(model, glm::vec3(0.0f, 0.0f, -3.0f));
 		//model = glm::translate(model, glm::vec3(0.0f, 0.755f, -2.5f));
 		//model = glm::scale(model, glm::vec3(1.5f, 0.5f, 1.5f));
@@ -938,5 +938,6 @@ int main()
 	}
 	return 0;
 }
+
 
 
