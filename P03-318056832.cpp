@@ -24,7 +24,7 @@
 using std::vector;
 
 //Dimensiones de la ventana
-const float toRadians = 3.14159265f/180.0; //grados a radianes
+const float toRadians = 3.14159265f / 180.0; //grados a radianes
 const float PI = 3.14159265f;
 GLfloat deltaTime = 0.0f;
 GLfloat lastTime = 0.0f;
@@ -135,11 +135,11 @@ void CrearPiramideTriangularColor()
 void CrearPiramideTriangular()
 {
 	unsigned int indices_piramide_triangular[] = {
-		  //X,Y,Z		
-			0,1,2,		
-			1,3,2,
-			3,0,2,
-			1,0,3
+		//X,Y,Z		
+		  0,1,2,
+		  1,3,2,
+		  3,0,2,
+		  1,0,3
 
 	};
 	GLfloat vertices_piramide_triangular[] = {
@@ -175,8 +175,8 @@ void CrearCilindro(int res, float R) {
 		}
 		//caso para terminar el círculo
 		else {
-			x = R * cos((0)*dt);
-			z = R * sin((0)*dt);
+			x = R * cos((0) * dt);
+			z = R * sin((0) * dt);
 		}
 		for (i = 0; i < 6; i++) {
 			switch (i) {
@@ -244,19 +244,19 @@ void CrearCilindro(int res, float R) {
 	for (i = 0; i < vertices.size(); i++) indices.push_back(i);
 
 	//se genera el mesh del cilindro
-	Mesh *cilindro = new Mesh();
+	Mesh* cilindro = new Mesh();
 	cilindro->CreateMeshGeometry(vertices, indices, vertices.size(), indices.size());
 	meshList.push_back(cilindro);
 }
 
 //función para crear un cono
-void CrearCono(int res,float R) {//Paso la resolución y el tamaño del radio
+void CrearCono(int res, float R) {//Paso la resolución y el tamaño del radio
 
 	//constantes utilizadas en los ciclos for
 	int n, i;
 	//cálculo del paso interno en la circunferencia y variables que almacenarán cada coordenada de cada vértice
 	GLfloat dt = 2 * PI / res, x, z, y = -0.5f;
-	
+
 	vector<GLfloat> vertices;
 	vector<unsigned int> indices;
 
@@ -264,7 +264,7 @@ void CrearCono(int res,float R) {//Paso la resolución y el tamaño del radio
 	vertices.push_back(0.0);
 	vertices.push_back(0.5);//Vértice de la punta
 	vertices.push_back(0.0);
-	
+
 	//ciclo for para crear los vértices de la circunferencia del cono
 	for (n = 0; n <= (res); n++) {
 		x = R * cos((n)*dt);
@@ -288,10 +288,10 @@ void CrearCono(int res,float R) {//Paso la resolución y el tamaño del radio
 	vertices.push_back(R * sin(0) * dt);
 
 
-	for (i = 0; i < res+2; i++) indices.push_back(i);
+	for (i = 0; i < res + 2; i++) indices.push_back(i);
 
 	//se genera el mesh del cono
-	Mesh *cono = new Mesh();
+	Mesh* cono = new Mesh();
 	cono->CreateMeshGeometry(vertices, indices, vertices.size(), res + 2);
 	meshList.push_back(cono);
 }
@@ -315,7 +315,7 @@ void CrearPiramideCuadrangular()
 		-0.5f,-0.5f,0.5f,
 		0.0f,0.5f,0.0f,
 	};
-	Mesh *piramide = new Mesh();
+	Mesh* piramide = new Mesh();
 	piramide->CreateMeshGeometry(piramidecuadrangular_vertices, piramidecuadrangular_indices, 15, 18);
 	meshList.push_back(piramide);
 }
@@ -324,7 +324,7 @@ void CrearPiramideCuadrangular()
 
 void CreateShaders()
 {
-	Shader *shader1 = new Shader();
+	Shader* shader1 = new Shader();
 	shader1->CreateFromFiles(vShader, fShader);
 	shaderList.push_back(*shader1);
 
@@ -395,7 +395,7 @@ int main()
 		//Limpiar la ventana
 		glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //Se agrega limpiar el buffer de profundidad
-		
+
 		shaderList[0].useShader();
 		uniformModel = shaderList[0].getModelLocation();
 		uniformProjection = shaderList[0].getProjectLocation();
@@ -770,9 +770,9 @@ int main()
 		//glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
 		//glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		//meshColorList[0]->RenderMeshColor();
-		
-		
-		
+
+
+
 		//model = glm::mat4(1.0);
 		////Traslación inicial para posicionar en -Z a los objetos
 		//model = glm::translate(model, glm::vec3(0.0f, 0.0f, -3.0f));
@@ -939,5 +939,4 @@ int main()
 	return 0;
 }
 
-	
-		
+
