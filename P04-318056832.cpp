@@ -546,6 +546,538 @@ int main()
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 		sp.render();
 
+		/////////////////////////////////////////Abeja//////////////////////////////////////////////
+
+		color = glm::vec3(1.0f, 0.95f, 0.0f);
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color)); //para cambiar el color del objetos
+
+		//AMARILLO
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(20.0f, 7.0f, -4.0f));
+		//aqui está la jerarquía
+		modelaux = model;
+		modelaux1 = model;
+		model = glm::scale(model, glm::vec3(1.5f, 4.0f, 5.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
+		meshList[0]->RenderMesh();
+
+		color = glm::vec3(0.0f, 0.0f, 0.0f);
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color)); //para cambiar el color del objetos
+
+		//NEGRO
+		model = modelaux;
+		//aqui está la jerarquía
+		model = glm::translate(model, glm::vec3(1.5f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.5f, 4.0f, 5.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
+		meshList[0]->RenderMesh();
+
+		color = glm::vec3(1.0f, 0.95f, 0.0f);
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color)); //para cambiar el color del objetos
+
+		//AMARILLO
+		model = modelaux;
+		//aqui está la jerarquía
+		model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.5f, 4.0f, 5.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
+		meshList[0]->RenderMesh();
+
+		color = glm::vec3(0.0f, 0.0f, 0.0f);
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color)); //para cambiar el color del objetos
+
+		//NEGRO
+		model = modelaux;
+		//aqui está la jerarquía
+		model = glm::translate(model, glm::vec3(4.5f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.5f, 4.0f, 5.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
+		meshList[0]->RenderMesh();
+
+		color = glm::vec3(1.0f, 0.95f, 0.0f);
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color)); //para cambiar el color del objetos
+
+		//AMARILLO
+		model = modelaux;
+		//aqui está la jerarquía
+		model = glm::translate(model, glm::vec3(6.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.5f, 4.0f, 5.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
+		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
+		meshList[0]->RenderMesh();
+
+		color = glm::vec3(1.0f, 0.0f, 0.0f);
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color)); //para cambiar el color del objetos
+
+		//Ojo derecho
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(-0.3f, -0.5f, 1.5f));
+		model = glm::scale(model, glm::vec3(1.0f, 1.5f, 1.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Ojo izquierdo
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(-0.3f, -0.5f, -1.5f));
+		model = glm::scale(model, glm::vec3(1.0f, 1.5f, 1.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		color = glm::vec3(0.0f, 0.0f, 0.0f);
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color)); //para cambiar el color del objetos
+
+		//Aguijón
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(7.1f, 0.0f, 0.0f));
+		model = glm::rotate(model, -90.0f * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(0.5f, 1.5f, 0.5));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));//FALSE ES PARA QUE NO SEA TRANSPUESTA
+		meshList[3]->RenderMeshGeometry();
+
+		/////////////////////////////////////////Patas////////////////////////////////////////7
+
+		//Articulación 1 Pata delantera derecha
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.5f, -2.0f, 1.5f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion9()), glm::vec3(0.0f, 0.0f, -1.0f));
+		//model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Pata
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 1.0f, 0.5f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		meshList[0]->RenderMesh(); //dibuja cubo y pirámide triangular
+
+		//Articulación 2 Pata delantera derecha
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion10()), glm::vec3(0.0f, 0.0f, -1.0f));
+		//model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Pata
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 1.0f, 0.5f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		meshList[0]->RenderMesh(); //dibuja cubo y pirámide triangular
+
+		//Articulación 1 Pata delantera izquierda
+		modelaux = modelaux1;
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.5f, -2.0f, -1.5f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion11()), glm::vec3(0.0f, 0.0f, -1.0f));
+		//model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Pata
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 1.0f, 0.5f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		meshList[0]->RenderMesh(); //dibuja cubo y pirámide triangular
+
+		//Articulación 2 Pata delantera izquierda
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion12()), glm::vec3(0.0f, 0.0f, -1.0f));
+		//model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Pata
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 1.0f, 0.5f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		meshList[0]->RenderMesh(); //dibuja cubo y pirámide triangular
+
+		//Articulación 1 Pata central izquierda
+		modelaux = modelaux1;
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(3.0f, -2.0f, -1.5f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion14()), glm::vec3(0.0f, 0.0f, -1.0f));
+		//model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Pata
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 1.0f, 0.5f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		meshList[0]->RenderMesh(); //dibuja cubo y pirámide triangular
+
+		//Articulación 2 Pata central izquierda
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion15()), glm::vec3(0.0f, 0.0f, -1.0f));
+		//model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Pata
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 1.0f, 0.5f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		meshList[0]->RenderMesh(); //dibuja cubo y pirámide triangular
+
+		//Articulación 1 Pata central derecha
+		modelaux = modelaux1;
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(3.0f, -2.0f, 1.5f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion14()), glm::vec3(0.0f, 0.0f, -1.0f));
+		//model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Pata
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 1.0f, 0.5f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		meshList[0]->RenderMesh(); //dibuja cubo y pirámide triangular
+
+		//Articulación 2 Pata central derecha
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion15()), glm::vec3(0.0f, 0.0f, -1.0f));
+		//model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Pata
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 1.0f, 0.5f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		meshList[0]->RenderMesh(); //dibuja cubo y pirámide triangular
+
+		//Articulación 1 Pata trasera derecha
+		modelaux = modelaux1;
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(5.5f, -2.0f, 1.5f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion16()), glm::vec3(0.0f, 0.0f, -1.0f));
+		//model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Pata
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 1.0f, 0.5f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		meshList[0]->RenderMesh(); //dibuja cubo y pirámide triangular
+
+		//Articulación 2 Pata trasera derecha
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion17()), glm::vec3(0.0f, 0.0f, -1.0f));
+		//model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Pata
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 1.0f, 0.5f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		meshList[0]->RenderMesh(); //dibuja cubo y pirámide triangular
+
+		//Articulación 1 Pata trasera izquierda
+		modelaux = modelaux1;
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(5.5f, -2.0f, -1.5f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion16()), glm::vec3(0.0f, 0.0f, -1.0f));
+		//model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Pata
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 1.0f, 0.5f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		meshList[0]->RenderMesh(); //dibuja cubo y pirámide triangular
+
+		//Articulación 2 Pata trasera izquierda
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion17()), glm::vec3(0.0f, 0.0f, -1.0f));
+		//model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Pata
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 1.0f, 0.5f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		meshList[0]->RenderMesh(); //dibuja cubo y pirámide triangular
+
+		///////////////////////////////////Antenas/////////////////////////////////////////
+
+		//Articulación 1 Antena izquierda
+		modelaux = modelaux1;
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(-0.0f, 1.1f, -1.3f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion13()), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, -120.0f * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
+		//model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Antena
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.3f, 2.5f, 0.3f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		meshList[0]->RenderMesh(); //dibuja cubo y pirámide triangular
+
+		//Articulación 2 Antena izquierda
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -1.4f, 0.0f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion13()), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, 25.0f * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
+		//model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Antena
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.3f, 1.0f, 0.3f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		meshList[0]->RenderMesh(); //dibuja cubo y pirámide triangular
+
+		//Articulación 3 Pata Antena izquierda
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion13()), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, 20.0f * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
+		//model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Antena
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.3f, 1.0f, 0.3f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		meshList[0]->RenderMesh(); //dibuja cubo y pirámide triangular
+
+		//Articulación 1 Antena derecha
+		modelaux = modelaux1;
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(-0.0f, 1.1f, 1.3f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion13()), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, -120.0f * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
+		//model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Antena
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.3f, 2.5f, 0.3f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		meshList[0]->RenderMesh(); //dibuja cubo y pirámide triangular
+
+		//Articulación 2 Antena derecha
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -1.4f, 0.0f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion13()), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, 25.0f * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
+		//model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Antena
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.3f, 1.0f, 0.3f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		meshList[0]->RenderMesh(); //dibuja cubo y pirámide triangular
+
+		//Articulación 3 Pata Antena derecha
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion13()), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, 20.0f * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
+		//model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Antena
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.3f, 1.0f, 0.3f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		meshList[0]->RenderMesh(); //dibuja cubo y pirámide triangular
+
+		////////////////////////////////////////Alas///////////////////////////////////////////////
+
+		color = glm::vec3(0.53f, 0.81f, 0.94f);
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color)); //para cambiar el color del objetos
+
+		//Articulación Ala izquierda
+		modelaux = modelaux1;
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(2.5f, 2.0f, -0.5f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, -45.0f * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Ala
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, 2.0f, 0.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(2.0f, 2.5f, 0.1f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		sp.render(); //dibuja cubo y pirámide triangular
+
+		//Articulación Ala izquierda
+		modelaux = modelaux1;
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(2.5f, 2.0f, 0.5f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(-1.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, 45.0f * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(mainWindow.getarticulacion18()), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.4f, 0.4f, 0.4f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		sp.render();
+
+		//Ala
+		model = modelaux;
+		model = glm::translate(model, glm::vec3(0.0f, 2.0f, 0.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(2.0f, 2.5f, 0.1f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		//la línea de proyección solo se manda una vez a menos que en tiempo de ejecución
+		//se programe cambio entre proyección ortogonal y perspectiva
+		sp.render(); //dibuja cubo y pirámide triangular
 
 		glUseProgram(0);
 		mainWindow.swapBuffers();
