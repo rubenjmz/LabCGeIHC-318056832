@@ -512,7 +512,7 @@ int main()
 		//rueda 2
 		model = glm::translate(model, glm::vec3(-3.5f, -2.5f, 2.5f));
 		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 0.0f, 1.0f));
-		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion5()), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion6()), glm::vec3(0.0f, 0.0f, 1.0f));
 		//modelaux1 = model;
 
 		//dibujar una pequeña esfera
@@ -525,7 +525,7 @@ int main()
 		//rueda 3
 		model = glm::translate(model, glm::vec3(3.5f, -2.5f, -2.5f));
 		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 0.0f, 1.0f));
-		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion5()), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion7()), glm::vec3(0.0f, 0.0f, 1.0f));
 		//modelaux1 = model;
 
 		//dibujar una pequeña esfera
@@ -538,7 +538,7 @@ int main()
 		//rueda 4
 		model = glm::translate(model, glm::vec3(-3.5f, -2.5f, -2.5f));
 		model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 0.0f, 1.0f));
-		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion5()), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion8()), glm::vec3(0.0f, 0.0f, 1.0f));
 		//modelaux1 = model;
 
 		//dibujar una pequeña esfera
