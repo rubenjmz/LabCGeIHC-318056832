@@ -350,14 +350,16 @@ int main()
 		15.0f);
 	spotLightCount++;
 
+	//Faro Carro
 	spotLights[2] = SpotLight(0.0f, 0.2f, 1.0f,
 		0.5f, 3.0f,
 		0.0f, 0.0f, 0.0f,
 		-1.0f, 0.0f, 0.0f,
-		1.0f, 0.0f, 0.0f,
+		1.0f, 0.02f, 0.0001f,
 		20.0f);
 	spotLightCount++;
 
+	//Faro Helicóptero
 	spotLights[3] = SpotLight(1.0f, 1.0f, 0.0f,
 		0.2f, 2.0f,
 		0.0f, 0.0f, 0.0f,
@@ -499,7 +501,7 @@ int main()
 		// Jerarquía de luz del helicóptero
 		posLocal = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 		posMundo = glm::vec3(modelaux * posLocal);
-		direccion = glm::normalize(glm::vec3(-1.0f, -1.0f, 0.0f));
+		direccion = glm::vec3(0.0f, -1.0f, 0.0f);
 		spotLights[3].SetFlash(posMundo, direccion);
 
 		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
