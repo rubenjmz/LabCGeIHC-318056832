@@ -325,7 +325,7 @@ int main()
 	pointLightCount++;
 
 	// Puerta
-	pointLights[1] = PointLight(1.0f, 0.0f, 0.0f,
+	pointLights[1] = PointLight(1.0f, 1.0f, 1.0f,
 		0.1f, 1.0f,
 		0.0f, 0.0f, 0.0f,
 		0.3f, 0.2f, 0.1f);
@@ -438,12 +438,12 @@ int main()
 
 		meshList[2]->RenderMesh();
 
-		//--- Instancia del coche ---
+		// Instancia del coche
 		model = glm::mat4(1.0);
 		model = glm::translate(model, glm::vec3(10.0f + mainWindow.getmuevex(), 2.5f, 0.0f));
 		modelaux = model;
 
-		// Jerarquía de luz del coche (Reusando posLocal, posMundo y direccion)
+		// Jerarquía de luz del coche
 		posLocal = glm::vec4(-0.8f, 3.0f, 0.0f, 1.0f);
 		posMundo = glm::vec3(modelaux * posLocal);
 		direccion = glm::vec3(-1.0f, 0.0f, 0.0f);
@@ -455,7 +455,7 @@ int main()
 		Kitt_M.RenderModel();
 
 		// Llantas
-		color = glm::vec3(0.5f, 0.5f, 0.5f); // Color gris para todas las llantas
+		color = glm::vec3(0.5f, 0.5f, 0.5f);
 		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
 
 		// Llanta delantera izquierda
@@ -490,14 +490,15 @@ int main()
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 		Llanta_M.RenderModel();
 
-		//--- Helicóptero ---
+		// Helicóptero
 		model = glm::mat4(1.0);
 		model = glm::translate(model, glm::vec3(10.0f + mainWindow.getmueveh(), 2.5f, 0.0f));
 		model = glm::translate(model, glm::vec3(0.0f, 5.0f, 6.0));
 		modelaux = model;
 
-		// Jerarquía de luz del heli (Reusando posMundo y direccion)
-		posMundo = glm::vec3(modelaux[3]);
+		// Jerarquía de luz del helicóptero
+		posLocal = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
+		posMundo = glm::vec3(modelaux * posLocal);
 		direccion = glm::normalize(glm::vec3(-1.0f, -1.0f, 0.0f));
 		spotLights[3].SetFlash(posMundo, direccion);
 
@@ -507,12 +508,12 @@ int main()
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 		Blackhawk_M.RenderModel();
 
-		//--- Puerta ---
+		// Puerta
 		model = glm::mat4(1.0);
 		model = glm::translate(model, glm::vec3(5.0f, -2.0f, -9.0));
 		modelaux = model;
 
-		// Jerarquía de luz de la puerta (Reusando posLocal y posMundo)
+		// Jerarquía de luz de la puerta
 		posLocal = glm::vec4(0.0f, 10.0f, 1.0f, 1.0f);
 		posMundo = glm::vec3(modelaux * posLocal);
 		pointLights[1].SetPos(posMundo);
